@@ -1,14 +1,11 @@
 package com.vlady.market.persistence.entity;
 
 
-
-import com.vlady.market.persistence.entity.Categoria;
-
 import javax.persistence.*;
 
 
 @Entity
-@Table(name="productos")
+@Table(name = "productos")
 public class Producto {
 
     @Id
@@ -18,24 +15,26 @@ public class Producto {
 
     private String nombre;
 
-    private Boolean estado;
-
-    @Column(name="id_categoria")
+    @Column(name = "id_categoria")
     private Integer idCategoria;
 
-    @Column(name="codigo_barras")
-    private Double codigoBarras;
+    @Column(name = "codigo_barras")
+    private String codigoBarras;
 
-    @Column(name="precio_venta")
+    @Column(name = "precio_venta")
     private Double precioVenta;
 
-    @Column(name="cantidad_stock")
+    @Column(name = "cantidad_stock")
     private Integer cantidadStock;
 
-    @ManyToMany
-    @JoinColumn(name="id_categoria", insertable = false, updatable = false )
-    private Categoria categoria;
+    private Boolean estado;
 
+
+    @ManyToOne //Muchos productos por cada categoria
+    @JoinColumn(name = "id_category", insertable = false, updatable = false)// la tabla producto esta relacionada con el
+                                                                            // id_category(foreign key) por el id_category
+                                                                            // no se puede insertar ni cambiar por este medio
+    private Categoria categoria;
     public Integer getIdProducto() {
         return idProducto;
     }
@@ -52,14 +51,6 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Boolean getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
-
     public Integer getIdCategoria() {
         return idCategoria;
     }
@@ -68,11 +59,11 @@ public class Producto {
         this.idCategoria = idCategoria;
     }
 
-    public Double getCodigoBarras() {
+    public String getCodigoBarras() {
         return codigoBarras;
     }
 
-    public void setCodigoBarras(Double codigoBarras) {
+    public void setCodigoBarras(String codigoBarras) {
         this.codigoBarras = codigoBarras;
     }
 
@@ -90,5 +81,21 @@ public class Producto {
 
     public void setCantidadStock(Integer cantidadStock) {
         this.cantidadStock = cantidadStock;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

@@ -1,7 +1,8 @@
 package com.vlady.market.web.controller;
 
 import com.vlady.market.domain.Purchase;
-import com.vlady.market.domain.service.PurchaseService;
+import com.vlady.market.domain.repository.PurchaseService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

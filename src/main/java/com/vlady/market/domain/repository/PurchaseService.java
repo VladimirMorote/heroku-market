@@ -1,7 +1,8 @@
 package com.vlady.market.domain.repository;
 
 import com.vlady.market.domain.Purchase;
-import com.vlady.market.domain.repository.PurchaseRepository;
+
+import com.vlady.market.domain.service.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

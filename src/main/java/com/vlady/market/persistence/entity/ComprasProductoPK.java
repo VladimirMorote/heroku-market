@@ -12,6 +12,7 @@ public class ComprasProductoPK implements Serializable {
     @Column(name = "id_producto")
     private Integer idProducto;
 
+    // Abajo Setters y Getters
     public Integer getIdCompra() {
         return idCompra;
     }
