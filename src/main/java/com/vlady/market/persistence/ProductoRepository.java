@@ -6,16 +6,20 @@ import com.vlady.market.persistence.crud.ProductoCrudRepository;
 import com.vlady.market.persistence.entity.Producto;
 import com.vlady.market.persistence.mapper.ProductMapper;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
-
+/*Este repositorio queda enfocado u orientado al dominio*/
 
 @Repository
 public class ProductoRepository implements ProductRepository {
+    @Autowired
     private ProductoCrudRepository productoCrudRepository;
+    
+    @Autowired
     private ProductMapper mapper;
 
     @Override
